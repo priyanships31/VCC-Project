@@ -30,20 +30,19 @@ This project implements an **adaptive object detection pipeline** using a combin
 project/
 │
 ├── Edge/
-│   ├── adaptive_client.py
-│   ├── client.py
-│   ├── edge-test.py
-│   ├── yolov8n.pt
-│   ├── results.csv
-│   └── test.png
+│   ├── adaptive_client.py   # Adaptive edge-cloud switching logic
+│   ├── client.py            # Sends image to cloud API
+│   ├── edge-test.py         # Local YOLO testing script
+│   ├── yolov8n.pt           # YOLOv8 model (edge)
+│   ├── results.csv          # Logged performance results
+│   └── test.png             # Sample test image
 │
 ├── Cloud/
-│   ├── server.py
-│   ├── test.py
-│   └── yolov8n.pt
+│   ├── server.py            # Flask server with YOLO inference
+│   ├── test.py              # Cloud-side testing script
+│   └── yolov8n.pt           # YOLOv8 model (cloud)
 │
-└── README.md
-
+└── README.md                # Project documentation
 ---
 
 ## ⚙️ Installation
