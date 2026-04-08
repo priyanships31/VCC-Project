@@ -49,7 +49,7 @@ project/
 ## ⚙️ Installation
 
 ```bash
-git clone <your-repo-url>
+git clone <repo-url>
 cd project
 python3 -m venv venv
 pip install -r requirements.txt
