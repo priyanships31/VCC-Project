@@ -19,6 +19,7 @@ This project implements an **adaptive object detection pipeline** using a combin
 * Python 3.x
 * OpenCV (`cv2`)
 * Ultralytics YOLOv8
+* Flask
 * Requests (for API calls)
 * CSV logging
 
@@ -26,16 +27,22 @@ This project implements an **adaptive object detection pipeline** using a combin
 
 ## 📁 Project Structure
 
-```
-Edge/
-│── adaptive_client.py
-│── edge-test.py
-│── client.py
-│── yolov8n.pt
-│── requirements.txt
-│── results.csv        # Generated output file
-│── test.png
-```
+project/
+│
+├── Edge/
+│   ├── adaptive_client.py
+│   ├── client.py
+│   ├── edge-test.py
+│   ├── yolov8n.pt
+│   ├── results.csv
+│   └── test.png
+│
+├── Cloud/
+│   ├── server.py
+│   ├── test.py
+│   └── yolov8n.pt
+│
+└── README.md
 
 ---
 
@@ -66,6 +73,7 @@ python3 server.py
 ```
 run in local
 ```bash
+cd edge
 python3 adaptive_client.py
 ```
 
@@ -105,6 +113,54 @@ Frame,Mode,Latency(s),Num_Objects
 3,Edge,0.048,1
 ```
 
+### 📊 Comparison and Analysis
+
+| Metric      | Edge Only      | Cloud Only | Proposed System     |
+| ----------- | -------------- | ---------- | ------------------- |
+| Latency     | ✅ Low (~0.03s) | ❌ High     | ✅ Optimized         |
+| Accuracy    | ⚠️ Medium      | ✅ High     | ✅ High              |
+| Cost        | ✅ Low          | ❌ High     | ✅ Balanced          |
+| Scalability | ❌ Limited      | ✅ High     | ✅ Adaptive          |
+| Flexibility | ❌ Static       | ❌ Static   | ✅ Dynamic Switching |
+
+
+### 🏗️ Architecture Diagram
+
+        +------------------+
+        |   Webcam Input   |
+        +--------+---------+
+                 |
+                 v
+        +------------------------------+
+        |         Edge Device          |
+        |  YOLOv8 (Local Inference)    |
+        |  OpenCV + Python Client      |
+        +--------+---------------------+
+                 |
+     Measure Latency & Object Count
+                 |
+        +--------+---------+
+        | Decision Engine  |
+        +--------+---------+
+                 |
+     +-----------+-----------+
+     |                       |
+     v                       v
++----------------+   +------------------------------+
+| Edge Result    |   |        Cloud Server          |
+| (YOLO Output)  |   | Flask API + YOLOv8 Model     |
++----------------+   +-------------+----------------+
+                                      |
+                                      v
+                           +------------------------+
+                           | Cloud YOLO Inference   |
+                           | (via Flask API)        |
+                           +----------+-------------+
+                                      |
+                                      v
+                           +------------------------+
+                           |   Final Output Display |
+                           +------------------------+
 
 ## 🧠 How It Works
 
