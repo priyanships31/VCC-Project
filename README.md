@@ -25,25 +25,6 @@ This project implements an **adaptive object detection pipeline** using a combin
 
 ---
 
-## 📁 Project Structure
-
-project/
-│
-├── Edge/
-│   ├── adaptive_client.py   # Adaptive edge-cloud switching logic
-│   ├── client.py            # Sends image to cloud API
-│   ├── edge-test.py         # Local YOLO testing script
-│   ├── yolov8n.pt           # YOLOv8 model (edge)
-│   ├── results.csv          # Logged performance results
-│   └── test.png             # Sample test image
-│
-├── Cloud/
-│   ├── server.py            # Flask server with YOLO inference
-│   ├── test.py              # Cloud-side testing script
-│   └── yolov8n.pt           # YOLOv8 model (cloud)
-│
-└── README.md                # Project documentation
----
 
 ## ⚙️ Installation
 
@@ -125,40 +106,8 @@ Frame,Mode,Latency(s),Num_Objects
 
 ### 🏗️ Architecture Diagram
 
-        +------------------+
-        |   Webcam Input   |
-        +--------+---------+
-                 |
-                 v
-        +------------------------------+
-        |         Edge Device          |
-        |  YOLOv8 (Local Inference)    |
-        |  OpenCV + Python Client      |
-        +--------+---------------------+
-                 |
-     Measure Latency & Object Count
-                 |
-        +--------+---------+
-        | Decision Engine  |
-        +--------+---------+
-                 |
-     +-----------+-----------+
-     |                       |
-     v                       v
-+----------------+   +------------------------------+
-| Edge Result    |   |        Cloud Server          |
-| (YOLO Output)  |   | Flask API + YOLOv8 Model     |
-+----------------+   +-------------+----------------+
-                                      |
-                                      v
-                           +------------------------+
-                           | Cloud YOLO Inference   |
-                           | (via Flask API)        |
-                           +----------+-------------+
-                                      |
-                                      v
-                           +------------------------+
-                           |   Final Output Display |
+ <img width="1341" height="1173" alt="image" src="https://github.com/user-attachments/assets/2c560dda-8fed-4419-82dd-8619a17d7c70" />
+
                            +------------------------+
 
 ## 🧠 How It Works
