@@ -127,7 +127,7 @@ Frame,Mode,Latency(s),Num_Objects
 
  <img width="1341" height="1173" alt="image" src="https://github.com/user-attachments/assets/2c560dda-8fed-4419-82dd-8619a17d7c70" />
 
-                           +------------------------+
+                        
 
 ## 🧠 How It Works
 
