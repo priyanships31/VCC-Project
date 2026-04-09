@@ -8,18 +8,18 @@ This project uses a combination of edge and cloud computing to balance speed and
 
 ☁️ Cloud (Remote Processing)
 
-*Handles complex frames that require more computation, such as scenes with many objects or higher processing time.
+* Handles complex frames that require more computation, such as scenes with many objects or higher processing time.
 
 🔄 Adaptive Switching
 
 The system intelligently switches between edge and cloud based on:
 
-*Number of detected objects
-*Processing latency
+* Number of detected objects
+* Processing latency
 
 👉 Benefits
-*Fast response for simple tasks (edge)
-*Accurate and efficient processing for complex tasks (cloud)
+* Fast response for simple tasks (edge)
+* Accurate and efficient processing for complex tasks (cloud)
 
 ---
 
