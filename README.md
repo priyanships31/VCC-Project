@@ -4,7 +4,7 @@ This project uses a combination of edge and cloud computing to balance speed and
 
 ⚡ Edge (Local Processing)
 
-*Handles simple frames quickly with low latency, enabling real-time performance without network delay.
+* Handles simple frames quickly with low latency, enabling real-time performance without network delay.
 
 ☁️ Cloud (Remote Processing)
 
